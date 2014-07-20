@@ -196,11 +196,78 @@ hr {
 
 <pre><code class="r">#initialize various packages that will be used in the program
 library(lubridate)
-library(ggplot2)
-library(plyr)
-library(dplyr)
-library(doBy)
-#Set directory to folder where data is present
+</code></pre>
+
+<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 3.1.1
+</code></pre>
+
+<pre><code class="r">library(ggplot2)
+</code></pre>
+
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.1.1
+</code></pre>
+
+<pre><code>## Use suppressPackageStartupMessages to eliminate package startup messages.
+</code></pre>
+
+<pre><code class="r">library(plyr)
+</code></pre>
+
+<pre><code>## Warning: package &#39;plyr&#39; was built under R version 3.1.1
+</code></pre>
+
+<pre><code>## 
+## Attaching package: &#39;plyr&#39;
+## 
+## The following object is masked from &#39;package:lubridate&#39;:
+## 
+##     here
+</code></pre>
+
+<pre><code class="r">library(dplyr)
+</code></pre>
+
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.1.1
+</code></pre>
+
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;
+## 
+## The following objects are masked from &#39;package:plyr&#39;:
+## 
+##     arrange, desc, failwith, id, mutate, summarise, summarize
+## 
+## The following objects are masked from &#39;package:lubridate&#39;:
+## 
+##     intersect, setdiff, union
+## 
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+## 
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+</code></pre>
+
+<pre><code class="r">library(doBy)
+</code></pre>
+
+<pre><code>## Warning: package &#39;doBy&#39; was built under R version 3.1.1
+</code></pre>
+
+<pre><code>## Loading required package: survival
+## Loading required package: splines
+## Loading required package: MASS
+## 
+## Attaching package: &#39;MASS&#39;
+## 
+## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     select
+</code></pre>
+
+<pre><code class="r">#Set directory to folder where data is present
 setwd(&quot;C:/Users/gt8616/Desktop/Coursera/Rep Res Asg 1&quot;)
 #read the csv file
 data &lt;- read.csv(&quot;activity.csv&quot;)
@@ -217,9 +284,20 @@ qplot(steps,data=data1,xlab=&quot;steps&quot;,ylab=&quot;count&quot;)
 <p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-1"/> </p>
 
 <pre><code class="r">mean &lt;- mean(data1$steps)
-median &lt;- median(data1$steps)
+mean
+</code></pre>
 
-#part 2: Average daily activity pattern
+<pre><code>## [1] 37.38
+</code></pre>
+
+<pre><code class="r">median &lt;- median(data1$steps)
+median
+</code></pre>
+
+<pre><code>## [1] 0
+</code></pre>
+
+<pre><code class="r">#part 2: Average daily activity pattern
 avgact &lt;- data1 %.%
           group_by(interval) %.%
           summarize(avg=mean(steps))
@@ -287,9 +365,20 @@ qplot(steps,data=data,xlab=&quot;steps&quot;,ylab=&quot;count&quot;)
 <p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-1"/> </p>
 
 <pre><code class="r">mean1 &lt;- mean(data$steps)
-median1 &lt;- median(data$steps)
+mean1
+</code></pre>
 
-#part 4:Differences between weekdays and weekends
+<pre><code>## [1] 37.38
+</code></pre>
+
+<pre><code class="r">median1 &lt;- median(data$steps)
+median1
+</code></pre>
+
+<pre><code>## [1] 0
+</code></pre>
+
+<pre><code class="r">#part 4:Differences between weekdays and weekends
 #create a column indicating day
 data$day &lt;- weekdays(ymd(data$date))
 

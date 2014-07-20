@@ -9,10 +9,91 @@ Author:Gaurav Tejwani
 ```r
 #initialize various packages that will be used in the program
 library(lubridate)
+```
+
+```
+## Warning: package 'lubridate' was built under R version 3.1.1
+```
+
+```r
 library(ggplot2)
+```
+
+```
+## Warning: package 'ggplot2' was built under R version 3.1.1
+```
+
+```
+## Use suppressPackageStartupMessages to eliminate package startup messages.
+```
+
+```r
 library(plyr)
+```
+
+```
+## Warning: package 'plyr' was built under R version 3.1.1
+```
+
+```
+## 
+## Attaching package: 'plyr'
+## 
+## The following object is masked from 'package:lubridate':
+## 
+##     here
+```
+
+```r
 library(dplyr)
+```
+
+```
+## Warning: package 'dplyr' was built under R version 3.1.1
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+## 
+## The following objects are masked from 'package:plyr':
+## 
+##     arrange, desc, failwith, id, mutate, summarise, summarize
+## 
+## The following objects are masked from 'package:lubridate':
+## 
+##     intersect, setdiff, union
+## 
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+## 
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 library(doBy)
+```
+
+```
+## Warning: package 'doBy' was built under R version 3.1.1
+```
+
+```
+## Loading required package: survival
+## Loading required package: splines
+## Loading required package: MASS
+## 
+## Attaching package: 'MASS'
+## 
+## The following object is masked from 'package:dplyr':
+## 
+##     select
+```
+
+```r
 #Set directory to folder where data is present
 setwd("C:/Users/gt8616/Desktop/Coursera/Rep Res Asg 1")
 #read the csv file
@@ -32,8 +113,23 @@ qplot(steps,data=data1,xlab="steps",ylab="count")
 
 ```r
 mean <- mean(data1$steps)
-median <- median(data1$steps)
+mean
+```
 
+```
+## [1] 37.38
+```
+
+```r
+median <- median(data1$steps)
+median
+```
+
+```
+## [1] 0
+```
+
+```r
 #part 2: Average daily activity pattern
 avgact <- data1 %.%
           group_by(interval) %.%
@@ -111,8 +207,23 @@ qplot(steps,data=data,xlab="steps",ylab="count")
 
 ```r
 mean1 <- mean(data$steps)
-median1 <- median(data$steps)
+mean1
+```
 
+```
+## [1] 37.38
+```
+
+```r
+median1 <- median(data$steps)
+median1
+```
+
+```
+## [1] 0
+```
+
+```r
 #part 4:Differences between weekdays and weekends
 #create a column indicating day
 data$day <- weekdays(ymd(data$date))

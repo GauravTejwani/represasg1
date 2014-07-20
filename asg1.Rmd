@@ -22,7 +22,9 @@ data <- read.csv("activity.csv")
 data1 <- data[!(is.na(data$steps)),]
 qplot(steps,data=data1,xlab="steps",ylab="count")
 mean <- mean(data1$steps)
+mean
 median <- median(data1$steps)
+median
 
 #part 2: Average daily activity pattern
 avgact <- data1 %.%
@@ -44,7 +46,9 @@ for(i in 1:nrow(data)){
 
 qplot(steps,data=data,xlab="steps",ylab="count")
 mean1 <- mean(data$steps)
+mean1
 median1 <- median(data$steps)
+median1
 
 #part 4:Differences between weekdays and weekends
 #create a column indicating day
